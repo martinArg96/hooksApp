@@ -6,13 +6,14 @@ export const FormWithCustomHook = () => {
 
     
 
-    const {formState, onInputChange} = useForm({
-        username:"",
-        email:"",
-        password: ""
+    const {formState, onInputChange,onResetForm,username,email,password}
+        = useForm({
+            username:"",
+            email:"",
+            password: ""
     })
 
-    const {username,email,password} = formState
+   // const {username,email,password} = formState
 
 
 
@@ -50,11 +51,11 @@ export const FormWithCustomHook = () => {
             onChange={onInputChange}
         />
 
-
+        <button onClick={onResetForm} className="btn btn-success mt-2" >Borrar</button>
         
-        {
+        {/* {
             (username === "user") && <Message/>
-        }
+        } */}
 
     </>
   )
