@@ -1,6 +1,8 @@
-import React from 'react'
-import { useFetch } from '../hooks/useFetch'
-import { useCounter } from '../hooks/useCounter'
+import { useFetch, useCounter} from '../hooks'
+import { LoadingQuote } from './LoadingQuote'
+import { Quote } from './Quote'
+
+
 
 export const MultipleCustomHooks = () => {
 
@@ -22,15 +24,9 @@ export const MultipleCustomHooks = () => {
 
         {
             isLoading?
-            <div className='alert alert-info text-center'>
-            Cargando . . .
-            </div>:
-        <blockquote className='blockquote text-end' >
-            <p className='mb-1'>{data.body} </p>
-            <footer className='blockquote-footer mt-1'>{data.title} </footer>
-        </blockquote>
-
-
+            <LoadingQuote />
+            :
+            <Quote body={data.body} title={data.title} />
         }
 
         <div className='d-flex justify-content-around mt-5'>
